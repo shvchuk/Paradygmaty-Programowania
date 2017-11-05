@@ -3,6 +3,9 @@ let rec potega(x, n) =
 
 potega(2., 8);;
 
+(* ZAD Zapisać funkcję potega:float*int, licząca potęgę naturalną
+danej liczby za pomocą rekurencji nie-ogonowej w czasie logarytmicznym. *)
+
 let parzysta(n) = 
   n mod 2 = 0;;
 
