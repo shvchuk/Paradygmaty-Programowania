@@ -36,6 +36,25 @@ List.length xss;;
 
 (* funkcje *)
 
+let double = fun x -> 2 * x;;
 
+double 6;;
+
+(* funckja anonimowa = literał funkcyjny *)
+
+fun x -> 2 * x;;
+(fun x -> 2 * x) 6;;
+
+let twice x = x + x;;
+twice 6;;
+twice(2+3);;
+twice 2+3;;
+
+let rec silnia n = 
+  if n=0 then 1
+  else n*silnia(n-1)
+;;
+
+silnia 4;;
 
 
