@@ -1,3 +1,5 @@
+(* adding all elements of the list/array *)
+
 let rec sum list = 
   match list with
   | [] -> 0
