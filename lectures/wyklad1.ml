@@ -57,4 +57,28 @@ let rec silnia n =
 
 silnia 4;;
 
+(* wyjątki *)
+
+let rec silniaWyj n = 
+  if n = 0 then 1
+  else if n > 0 then n * silniaWyj(n - 1)
+  else raise (Failure "ujemny argument")
+;;
+
+silniaWyj 4;;
+silniaWyj (-4);;
+
+(* Polimorfizm parametryczny *)
+(* funkcja last zwraca ostatni element listy *)
+let last lista = 
+  if lista = [] then failwith "pusta lista"
+  else List.hd(List.rev lista)
+;;
+
+last [1;2;3;4;5];;
+last [];;
+
+
+
+
 
