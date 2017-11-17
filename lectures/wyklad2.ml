@@ -16,3 +16,56 @@ f2 5;;
 
 let f5 = function z-> f z 5;;
 f5 2;;
+
+(* lukier syntaktyczny *)
+(* poniżej cztery równoważne definicje funkcji *)
+let plus = function x -> function y -> x + y;;
+let plus' x = function y -> x + y;;
+let plus'' x y = x + y;;
+let plus3 = fun x y -> x + y;;
+
+let d1 = plus 2 3;;
+let d2 = plus' 2 3;;
+let d3 = plus'' 2 3;;
+let d4 = plus3 2 3;;
+
+(* polimorfizm parametryczny *)
+let id x = x;;
+id 5;;
+id (3 + 4, "siedem");;
+id id "OK";;
+id;;
+
+(* postać zwinięta - uncurried *)
+let plus (x,y) = x + y;;
+plus (4, 5);;
+
+(* postać rozwinięta - curried *)
+let add x y = x + y;;
+add 4 5;;
+
+(* funkcje wzajemnie rekurencyjne *)
+let rec evenR n = if n = 0 then true 
+  else oddR(n - 1) and oddR n = if n = 0 then false
+  else evenR(n - 1)
+;;
+
+evenR 128;;
+oddR 128;;
+
+(* efektywne definicje funkcji even i odd *)
+let even n = n mod 2 = 0;;
+let odd n = n mod 2 <> 0;;
+
+even 10;;
+even 13;;
+
+
+
+
+
+
+
+
+
+
