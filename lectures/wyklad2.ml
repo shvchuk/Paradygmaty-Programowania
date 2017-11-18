@@ -60,6 +60,40 @@ let odd n = n mod 2 <> 0;;
 even 10;;
 even 13;;
 
+(* rekursja ogonowa *)
+let rec succ n = 
+  if n = 0 then 1
+  else 1 + succ(n-1)
+;;
+
+succ 1000000;;
+
+let succ_tail n = 
+  let rec succ_iter(n, accum) = 
+    if n = 0 then accum
+    else succ_iter(n-1, accum+1)
+  in
+    succ_iter(n,1)
+;;
+
+succ_tail 1000000;;
+
+(* gorliwe wartościowanie rekursji *)
+let rec factorial n = 
+  if n = 0 then 1
+  else n*factorial(n-1)
+;;
+
+factorial 4;;
+
+(* gorliwe wartościowanie rekursji ogonowej *)
+let rec factIt(n, ak) = 
+  if n = 0 then ak
+  else factIt(n-1, n*ak) 
+;;
+
+factIt(4, 1);;
+
 
 
 
