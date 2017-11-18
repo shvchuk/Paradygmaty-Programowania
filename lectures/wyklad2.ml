@@ -94,6 +94,45 @@ let rec factIt(n, ak) =
 
 factIt(4, 1);;
 
+(* wybór przypadku *)
+let imply1 v =
+  match v with
+    | (false, false) -> true
+    | (false, true) -> true
+    | (true, false) -> false
+    | (true, true) -> true
+;;
+
+let imply2 v = 
+  match v with
+    | (true, false) -> false
+    | _ -> true
+;;
+
+imply2 (1>2, true);;
+
+(* funkcja zip *)
+(* zip ([x1, x2, x3], [y1, y2, y3]) = [(x1, y1), (x2, y2), (x3, y3)] *)
+
+let rec zip (xs, ys) = 
+  match (xs, ys) with
+    | (h1::t1, h2::t2) -> (h1, h2)::zip(t1, t2)
+    | _ -> []
+;;
+
+zip ([1;2;3], ['a';'b';'c']);;
+
+zip ([1;2;3], ['a';'b']);;
+
+(* funkcja unzip *)
+let rec unzip lst = 
+  match lst with
+    [] -> ([], [])
+    | (h1, h2)::t -> let (lst1, lst2) = unzip t in (h1::lst1, h2::lst2)
+;;
+
+unzip [(1, 2); (3, 4); (5, 6); (7, 8)];;
+
 
 
 
