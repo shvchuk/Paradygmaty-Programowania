@@ -40,3 +40,12 @@ let rec preorder = function
 ;;
 
 preorder tt;;
+
+(* efektywniejsza wersja preorder traversal *)
+let preorder' t = 
+  let rec preord = function
+  (Empty, labels) -> labels
+  | (Node(v,t1,t2), labels) -> v :: preord (t1, preord (t2, labels))
+in preord (t, []);;
+
+preorder' tt;;
