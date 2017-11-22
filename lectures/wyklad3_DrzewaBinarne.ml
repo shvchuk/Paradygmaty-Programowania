@@ -65,3 +65,20 @@ Node(v,l,r) -> (postorder l) @ (postorder r) @ [v]
 
 postorder tt;;
 
+(* Lista -> drzewo poszukiwań binarnych *)
+let rec list2bst l =
+  let rec insert2bst = function
+    (k, Node (r,lt,rt)) ->
+        if k<r then Node(r,insert2bst(k,lt),rt) else
+        if k>r then Node(r,lt,insert2bst(k,rt))
+        else failwith "duplicated key"
+    | (k, Empty) -> Node (k,Empty,Empty)
+  in
+    match l with
+        h::t -> insert2bst(h, list2bst t)
+        | [] -> Empty
+;;
+
+list2bst [6;4;9;2;5];;
+
+
