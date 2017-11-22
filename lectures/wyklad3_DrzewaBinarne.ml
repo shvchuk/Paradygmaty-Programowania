@@ -49,3 +49,19 @@ let preorder' t =
 in preord (t, []);;
 
 preorder' tt;;
+
+(* obejście drzew w głąb infiksowo i postfiksowo *)
+let rec inorder = function
+Node(v, l, r) -> (inorder l) @ v::(inorder r)
+| Empty -> []
+;;
+
+inorder tt;;
+
+let rec postorder = function
+Node(v,l,r) -> (postorder l) @ (postorder r) @ [v]
+| Empty -> []
+;;
+
+postorder tt;;
+
